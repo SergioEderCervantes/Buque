@@ -2,7 +2,8 @@
 #include <fstream>
 #define FILENAME "Buque.dat"
 
-void llenarMercancia(Mercancia *m, int n);
+void llenarMercancia(Mercancia *, int);
+string procesarCadena(string);
 
 // Archivos
 void llenarArchivo(Mercancia *m, int n, int tam);
@@ -11,7 +12,7 @@ void leerArchivo();
 void llenarMercancia(Mercancia *m, int n)
 {
     string nombre;
-    int volumen, costo, unidades;
+    int volumen = 0, costo = 0, unidades = 0;
     for (int i = 0; i < n; i++)
     {
         cout << "Ingrese el nombre de la mercancia: ";
@@ -22,8 +23,22 @@ void llenarMercancia(Mercancia *m, int n)
         cin >> costo;
         cout << "Ingrese las unidades de la mercancia: ";
         cin >> unidades;
-        m[i] = Mercancia(nombre, volumen, costo, unidades);
+        m[i] = Mercancia(procesarCadena(nombre), volumen, costo, unidades);
     }
+}
+
+string procesarCadena(string cadena)
+{
+    string cadenaProcesada = "";
+    for (int i = 0; i < cadena.length(); i++)
+    {
+
+        if (cadena[i] != ' ' && isalpha(cadena[i]))
+        {
+            cadenaProcesada += tolower(cadena[i]);
+        }
+    }
+    return cadenaProcesada;
 }
 
 void llenarArchivo(Mercancia *registro, int n, int tam)
@@ -51,10 +66,10 @@ void llenarArchivo(Mercancia *registro, int n, int tam)
 
 void leerArchivo()
 {
-    cout << "Leyendo archivo...";
     fstream file;
     Mercancia registro;
-    file.open(FILENAME, ios::binary | ios::in);
+    int n, tam;
+    file.open(FILENAME, ios::in);
 
     if (!file)
     {
@@ -63,14 +78,13 @@ void leerArchivo()
     }
     else
     {
+        file >> n;
+        file >> tam;
+        cout << "Total de Mercancias: " << n << endl;
+        cout << "Tamanio del buque: " << tam << endl;
         while (file >> registro.nombre >> registro.volumen >> registro.costo >> registro.unidades)
         {
-            cout << "Hola";
-            cout << endl;
-            cout << " Nombre: " << registro.getNombre();
-            cout << " Volumen: " << registro.getVolumen();
-            cout << " Costo: " << registro.getCosto();
-            cout << " Unidades: " << registro.getUnidades();
+            cout << registro.nombre << " " << registro.volumen << " " << registro.costo << " " << registro.unidades << endl;
         }
     }
 

@@ -1,6 +1,6 @@
 #include "Mercancia.h"
 
-Mercancia::Mercancia(string nombre, int volumen, int coste, int unidades) : nombre(nombre), volumen(volumen), costo(costo), unidades(unidades) {}
+Mercancia::Mercancia(string _nombre, int _volumen, int _costo, int _unidades) : nombre(_nombre), volumen(_volumen), costo(_costo), unidades(_unidades) {}
 
 // Getters
 string Mercancia::getNombre() { return this->nombre; }
