@@ -25,5 +25,7 @@ public:
     void setVolumen(int);
     void setCosto(int);
     void setUnidades(int);
+
+    friend void leerArchivo();
 };
 #endif

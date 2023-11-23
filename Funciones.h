@@ -28,29 +28,32 @@ void llenarMercancia(Mercancia *m, int n)
 
 void llenarArchivo(Mercancia *registro, int n, int tam)
 {
-    ofstream archivo;
+    ofstream file;
 
-    archivo.open("clientes.dat", ios::binary);
+    file.open(FILENAME, ios::binary);
 
-    if (!archivo)
+    if (!file)
     {
         cerr << "No se puede abrir el archivo " << endl;
     }
-    for (int i = 0; i < n; i++)
+    else
     {
-        archivo << n << endl;
-        archivo << tam << endl;
-        archivo.write((char *)(&registro[i]), sizeof(Mercancia));
+        file << n << endl;
+        file << tam << endl;
+        for (int i = 0; i < n; i++)
+        {
+            file << registro[i].getNombre() << " " << registro[i].getVolumen() << " " << registro[i].getCosto() << " " << registro[i].getUnidades() << endl;
+        }
+        cout << "Archivo escrito correctamente" << endl;
     }
-
     fflush(stdin);
 }
 
 void leerArchivo()
 {
-    ifstream file;
+    cout << "Leyendo archivo...";
+    fstream file;
     Mercancia registro;
-
     file.open(FILENAME, ios::binary | ios::in);
 
     if (!file)
@@ -60,8 +63,9 @@ void leerArchivo()
     }
     else
     {
-        while (file.read((char *)(&registro), sizeof(Mercancia)))
+        while (file >> registro.nombre >> registro.volumen >> registro.costo >> registro.unidades)
         {
+            cout << "Hola";
             cout << endl;
             cout << " Nombre: " << registro.getNombre();
             cout << " Volumen: " << registro.getVolumen();
