@@ -5,10 +5,17 @@ int main(int argc, char const *argv[])
     int n, tam;
     Mercancia *m;
 
-    cout << "Ingrese el numero de mercancias: ";
-    cin >> n;
-    cout << "Ingrese el tamano del buque: ";
-    cin >> tam;
+    do
+    {
+        cout << "Ingrese el numero de mercancias: ";
+        cin >> n;
+    } while (n < 1 || n > 99);
+
+    do
+    {
+        cout << "Ingrese el tamano del buque: ";
+        cin >> tam;
+    } while (tam < 1 || tam > 9999);
 
     m = new Mercancia[n];
     llenarMercancia(m, n);

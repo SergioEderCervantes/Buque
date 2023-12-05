@@ -10,21 +10,18 @@ class Mercancia
 private:
     string nombre;
     int volumen;
-    int costo;
-    int unidades;
+    int costoUnidades;
 
 public:
-    Mercancia(string = "", int = 0, int = 0, int = 0);
+    Mercancia(string = "", int = 0, int = 0);
 
     string getNombre();
     int getVolumen();
-    int getCosto();
-    int getUnidades();
+    int getCostoUnidades();
 
     void setNombre(string);
     void setVolumen(int);
-    void setCosto(int);
-    void setUnidades(int);
+    void setCostoUnidades(int);
 
     friend void leerArchivo();
 };

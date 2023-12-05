@@ -12,7 +12,7 @@ void leerArchivo();
 void llenarMercancia(Mercancia *m, int n)
 {
     string nombre;
-    int volumen = 0, costo = 0, unidades = 0;
+    int volumen = 0, costoUnidades = 0;
     for (int i = 0; i < n; i++)
     {
         cout << "Ingrese el nombre de la mercancia: ";
@@ -20,10 +20,8 @@ void llenarMercancia(Mercancia *m, int n)
         cout << "Ingrese el volumen de la mercancia: ";
         cin >> volumen;
         cout << "Ingrese el costo de la mercancia: ";
-        cin >> costo;
-        cout << "Ingrese las unidades de la mercancia: ";
-        cin >> unidades;
-        m[i] = Mercancia(procesarCadena(nombre), volumen, costo, unidades);
+        cin >> costoUnidades;
+        m[i] = Mercancia(procesarCadena(nombre), volumen, costoUnidades);
     }
 }
 
@@ -57,7 +55,7 @@ void llenarArchivo(Mercancia *registro, int n, int tam)
         file << tam << endl;
         for (int i = 0; i < n; i++)
         {
-            file << registro[i].getNombre() << " " << registro[i].getVolumen() << " " << registro[i].getCosto() << " " << registro[i].getUnidades() << endl;
+            file << registro[i].getNombre() << " " << registro[i].getVolumen() << " " << registro[i].getCostoUnidades() << endl;
         }
         cout << "Archivo escrito correctamente" << endl;
     }
@@ -82,9 +80,9 @@ void leerArchivo()
         file >> tam;
         cout << "Total de Mercancias: " << n << endl;
         cout << "Tamanio del buque: " << tam << endl;
-        while (file >> registro.nombre >> registro.volumen >> registro.costo >> registro.unidades)
+        while (file >> registro.nombre >> registro.volumen >> registro.costoUnidades)
         {
-            cout << registro.nombre << " " << registro.volumen << " " << registro.costo << " " << registro.unidades << endl;
+            cout << registro.nombre << " " << registro.volumen << " " << registro.costoUnidades << endl;
         }
     }
 

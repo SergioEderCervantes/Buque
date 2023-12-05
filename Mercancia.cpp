@@ -1,16 +1,14 @@
 #include "Mercancia.h"
 
-Mercancia::Mercancia(string _nombre, int _volumen, int _costo, int _unidades) : nombre(_nombre), volumen(_volumen), costo(_costo), unidades(_unidades) {}
+Mercancia::Mercancia(string _nombre, int _volumen, int _costoUnidades) : nombre(_nombre), volumen(_volumen), costoUnidades(_costoUnidades) {}
 
 // Getters
 string Mercancia::getNombre() { return this->nombre; }
 int Mercancia::getVolumen() { return this->volumen; }
-int Mercancia::getCosto() { return this->costo; }
-int Mercancia::getUnidades() { return this->unidades; }
+int Mercancia::getCostoUnidades() { return this->costoUnidades; }
 
 // Setters
 
 void Mercancia::setNombre(string _nombre) { this->nombre = _nombre; }
 void Mercancia::setVolumen(int _volumen) { this->volumen = _volumen; }
-void Mercancia::setCosto(int _costo) { this->costo = _costo; }
-void Mercancia::setUnidades(int _unidades) { this->unidades = _unidades; }
+void Mercancia::setCostoUnidades(int _costoUnidades) { this->costoUnidades = _costoUnidades; }
