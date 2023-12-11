@@ -9,7 +9,7 @@ class Buque : public Puerto{
     private: 
         int capacidad;
         int numProductos;
-        Contenedor contenedores;
+        Contenedor *contenedores;
     
     public:
         Buque(int=0,int=0);

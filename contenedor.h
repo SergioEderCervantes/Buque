@@ -30,7 +30,7 @@ class Contenedor : public Puerto
 
         friend void leerArchivo();
 
-         ~Contenedor();
+        ~Contenedor();
 
 
 };
