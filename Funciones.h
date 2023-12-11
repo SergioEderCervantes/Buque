@@ -1,15 +1,15 @@
-#include "Mercancia.cpp"
+#include "contenedor.cpp"
 #include <fstream>
 #define FILENAME "Buque.dat"
 
-void llenarMercancia(Mercancia *, int);
+void llenarMercancia(Contenedor *, int);
 string procesarCadena(string);
 
 // Archivos
-void llenarArchivo(Mercancia *m, int n, int tam);
+void llenarArchivo(Contenedor *m, int n, int tam);
 void leerArchivo();
 
-void llenarMercancia(Mercancia *m, int n)
+void llenarMercancia(Contenedor *m, int n)
 {
     string nombre;
     int volumen = 0, costo = 0, unidades = 0;
@@ -23,7 +23,7 @@ void llenarMercancia(Mercancia *m, int n)
         cin >> costo;
         cout << "Ingrese las unidades de la mercancia: ";
         cin >> unidades;
-        m[i] = Mercancia(procesarCadena(nombre), volumen, costo, unidades);
+        m[i] = Contenedor(procesarCadena(nombre), volumen, costo, unidades);
     }
 }
 
@@ -41,7 +41,7 @@ string procesarCadena(string cadena)
     return cadenaProcesada;
 }
 
-void llenarArchivo(Mercancia *registro, int n, int tam)
+void llenarArchivo(Contenedor *registro, int n, int tam)
 {
     ofstream file;
 
@@ -67,7 +67,7 @@ void llenarArchivo(Mercancia *registro, int n, int tam)
 void leerArchivo()
 {
     fstream file;
-    Mercancia registro;
+    Contenedor registro;
     int n, tam;
     file.open(FILENAME, ios::in);
 
