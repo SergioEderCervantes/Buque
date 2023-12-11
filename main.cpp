@@ -1,28 +1,17 @@
-#include "Funciones.h"
+#include <iostream>
+#include <typeinfo>
+#include "administracion.cpp"
+#include "logistica.cpp"
+#include "buque.cpp"
+using namespace std;
 
-int main(int argc, char const *argv[])
-{
-    int n, tam;
-    Mercancia *m;
+int main(){
 
-    do
-    {
-        cout << "Ingrese el numero de mercancias: ";
-        cin >> n;
-    } while (n < 1 || n > 99);
+    Puerto *Titanic=new Buque();
 
-    do
-    {
-        cout << "Ingrese el tamano del buque: ";
-        cin >> tam;
-    } while (tam < 1 || tam > 9999);
+    Buque *embarque = static_cast<Buque*>(Titanic);
+    embarque->ejecutarAdministracion();
 
-    m = new Mercancia[n];
-    llenarMercancia(m, n);
-
-    llenarArchivo(m, n, tam);
-    leerArchivo();
-
-    delete[] m;
+    cout<<endl<<endl; 
     return 0;
 }
