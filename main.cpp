@@ -2,8 +2,9 @@
 
 int main(int argc, char const *argv[])
 {
+    srand(time(NULL));
     int n, tam;
-    Mercancia *m;
+    Contenedor *m;
 
     do
     {
@@ -17,11 +18,11 @@ int main(int argc, char const *argv[])
         cin >> tam;
     } while (tam < 1 || tam > 9999);
 
-    m = new Mercancia[n];
-    llenarMercancia(m, n);
-
-    llenarArchivo(m, n, tam);
-    leerArchivo();
+    m = new Contenedor[n];
+    // llenarContenedor(m, n);
+    llenarContenedor(m,n,1);
+    m->llenarArchivo(m, n, tam);
+    m->leerArchivo();
 
     delete[] m;
     return 0;

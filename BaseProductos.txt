@@ -1,0 +1,100 @@
+00. Trigo
+01. Maíz
+02. Arroz
+03. Cafe en granos
+04. Aceite de soja
+05. Azucar
+06. Algodon
+07. Fertilizantes
+08. Madera en rollos
+09. Muebles de madera
+10. Acero en bobinas
+11. Hierro en lingotes
+12. Cemento
+13. Ladrillos
+14. Vigas de acero
+15. Tubos de acero
+16. Maquinaria agricola
+17. Tractores
+18. Equipos de construccion
+19. Generadores electricos
+20. Paneles solares
+21. Computadoras portatiles
+22. Telefonos moviles
+23. Electrodomesticos
+24. Ropa
+25. Calzado
+26. Juguetes
+27. Herramientas electricas
+28. Neumaticos
+29. Vehiculos automotores
+30. Motocicletas
+31. Barcos pequeños
+32. Aviones ligeros
+33. Repuestos de automoviles
+34. Equipos medicos
+35. Medicamentos
+36. Material educativo
+37. Papel
+38. Libros
+39. Jugos y bebidas enlatadas
+40. Refrigeradores
+41. Aire acondicionado
+42. Maquinas expendedoras
+43. Articulos deportivos
+44. Equipos de gimnasio
+45. Productos químicos industriales
+46. Plasticos
+47. Envases de vidrio
+48. Maquinaria textil
+49. Telas y tejidos
+50. Aluminio en lingotes
+51. Equipos de refrigeración
+52. Alimentos congelados
+53. Pescado enlatado
+54. Alimentos enlatados
+55. Maiz enlatado
+56. Aceitunas enlatadas
+57. Maquinas de coser industriales
+58. Equipos de sonido
+59. Televisores
+60. Bicicletas
+61. Sillas de ruedas
+62. Equipos de jardinería
+63. Lámparas y luminarias
+64. Transformadores electricos
+65. Baterias
+66. Herramientas manuales
+67. Tornillos y tuercas
+68. Gruas
+69. Alfombras
+70. Pelotas de futbol
+71. Equipos de pesca
+72. Equipos de fotografía
+73. Máquinas de café
+74. Helados
+75. Galletas
+76. Sillas de oficina
+77. Mesas de conferencia
+78. Equipos de rayos X
+79. Material de construccion prefabricado
+80. Maquinaria de impresion
+81. Gafas de sol
+82. Equipos de seguridad
+83. Juguetes educativos
+84. Camaras de vigilancia
+85. Relojes
+86. Equipos de soldadura
+87. Bombas de agua
+88. Herramientas de jardineria
+89. Equipos de limpieza industrial
+90. Juguetes para mascotas
+91. Articulos de decoracion
+92. Productos de limpieza
+93. Maquinaria de embalaje
+94. Accesorios para el hogar
+95. Instrumentos musicales
+96. Articulos de oficina
+97. Herramientas de carpinteria
+98. Equipos de entrenamiento fisico
+99. Productos de higiene personal
