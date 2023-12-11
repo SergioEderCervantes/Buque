@@ -4,18 +4,18 @@ int main(int argc, char const *argv[])
 {
     srand(time(NULL));
     int n, tam;
-    Mercancia *m;
+    Contenedor *m;
 
     cout << "Ingrese el numero de mercancias: ";
     cin >> n;
     cout << "Ingrese el tamano del buque: ";
     cin >> tam;
 
-    m = new Mercancia[n];
-    // llenarMercancia(m, n);
-    llenarMercancia(m,n,1);
-    llenarArchivo(m, n, tam);
-    leerArchivo();
+    m = new Contenedor[n];
+    // llenarContenedor(m, n);
+    llenarContenedor(m,n,1);
+    m->llenarArchivo(m, n, tam);
+    m->leerArchivo();
 
     delete[] m;
     return 0;
