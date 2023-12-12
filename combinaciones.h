@@ -11,6 +11,7 @@ private:
 
 public:
     Combinaciones(Combinacion *, Combinacion *);
+
     void nuevoCombinacion(Combinacion *);
     ~Combinaciones();
 };
