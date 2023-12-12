@@ -1,13 +1,9 @@
 #ifndef LOGISTICA_H
 #define LOGISTICA_H
-
 #include "administracion.h"
 
 class Logistica : public Administracion
 {
-    private: 
-        
-    
     public:
         Logistica();
         virtual void area();
