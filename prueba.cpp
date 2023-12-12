@@ -7,11 +7,11 @@
 using namespace std;
 
 Contenedor *quickSort(Contenedor *vec, int n);
-Contenedor *acotarElementos(Contenedor*, int);
 void imprimirVectores(Contenedor*, int);
-Contenedor *generarCombinacionWin(const Contenedor *vec, int capacidadBuque, int n, int &valMax, int &elements) {
+Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal);
+Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int ) {
     Contenedor *aux;
-    for (int i = 0; i < 1<<n; ++i) {
+    for (int i = 0; i <( 1<<n); ++i) {
         Contenedor *combinacionActual= new Contenedor[n];
         int sumaActual = 0;
         int valorAct=0, cont=0;
@@ -37,17 +37,6 @@ Contenedor *generarCombinacionWin(const Contenedor *vec, int capacidadBuque, int
     return aux;
 }
 
-// Función para imprimir combinaciones
-// void imprimirCombinaciones(const Contenedor **combinaciones) {
-//     for (int i=0, ) {
-//         cout << "{ ";
-//         for (const auto& elemento : combinacion) {
-//             cout << elemento.nombre << " ";
-//         }
-//         cout << "}" << endl;
-//     }
-// } 
-
 
 
 int main() {
@@ -58,7 +47,7 @@ int main() {
     Buque *embarque = static_cast<Buque*>(Titanic);
     embarque->validacionDatos();
     embarque->creacionContenedores();
-    int n=0, valMax=0, suma = 0, elements=0;
+    int n=0, valMax=0, suma = 0, elements=0, volFinal =0;
     Contenedor *q = embarque->inicio;
     while (q!= NULL)
     {
@@ -86,49 +75,48 @@ int main() {
     //funcion la cual acota los elementos de la lista para generar las combinaciones si n es mayor a 10, creando un vector de los
     //10 mejores elementos estadisticamente hablando
 
-    Contenedor *vecChido;
-    if(n > 20)
-    {
-        vecChido = acotarElementos(vec,n);
-        delete [] vec;
-        n=20;
-    }
-    else
-    {
-        vecChido = vec;
-    }
-    imprimirVectores(vecChido, n);
 
     // Generar todas las combinaciones a partir del inicio de la lista
-    Contenedor *convGanadora = generarCombinacionWin(vecChido, embarque->getCapacidad(), n, valMax, elements);
+    Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,embarque->getCapacidad(),volFinal);
+    cout << endl << "Conbinacion Ganadora: ";
     for (int i = 0; i < elements; i++)
     {
         convGanadora[i].imprimirContenedor();
     }
-    
+    cout << endl << "Precio total: " << valMax << " millones de peso";
+    cout << endl << "Volumen ocupado: " << volFinal;
+
     
     // Liberar la memoria de la lista
 
     return 0;
 }
-Contenedor *acotarElementos(Contenedor* vec, int n)
+Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal)
 {
-    Contenedor * pro = new Contenedor[20];
-    cout << "HOLA";
+    Contenedor * convGanadora = new Contenedor[n];
+    bool band = true;
+    int acum = 0, i = 0;
     //Sacar todas las relaciones precio volumen de todo el vector
     for (int i = 0; i < n; i++)
     {
 
-        vec[i].relacionPV = round(vec[i].getVolumen() / vec[i].getCosto());
+        vec[i].relacionPV = vec[i].getCosto() / vec[i].getVolumen();
     }
-    cout << "HOLA";
-    // relacionPV = quickSort(relacionPV,n);
     vec = quickSort(vec,n);
-    for (int i = 0; i < 20; i++)
+    int j = 0;
+    for (int i = 0; i < n; i++)
     {
-        pro[i] = vec[i];
+        if (acum + vec[i].getVolumen() <= capacidadBuque)
+        {
+            convGanadora[j] = vec[i];
+            elements++;
+            valMax += vec[i].getCosto();
+            acum += vec[i].getVolumen();
+            j++;
+        }        
     }
-    return pro;
+    volFinal = acum;
+    return convGanadora;
 }
 
 Contenedor *quickSort(Contenedor *vec, int n)
@@ -138,9 +126,9 @@ Contenedor *quickSort(Contenedor *vec, int n)
     double pivot = vec[(i + j) / 2].relacionPV;
     while (i <= j)
     {
-        while (vec[i].relacionPV < pivot)
+        while (vec[i].relacionPV > pivot)
             i++;
-        while (vec[j].relacionPV > pivot)
+        while (vec[j].relacionPV < pivot)
             j--;
         if (i <= j)
         {
