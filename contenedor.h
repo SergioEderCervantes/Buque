@@ -12,6 +12,7 @@ class Contenedor
         int volumen;
         int costo;
         int unidades;
+        double relacionPV;
         Contenedor *izq=NULL;
         Contenedor *der=NULL;
 
