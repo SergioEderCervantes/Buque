@@ -8,4 +8,4 @@ void Logistica::area(){
 
 }
 
- void Logistica::ejecutarLogistica(){}
+void Logistica::ejecutarLogistica(){}
