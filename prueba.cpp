@@ -9,29 +9,32 @@ using namespace std;
 Contenedor *quickSort(Contenedor *vec, int n);
 Contenedor *acotarElementos(Contenedor*, int);
 void imprimirVectores(Contenedor*, int);
-Contenedor **generarCombinacionesQueQuepan(const Contenedor *vec, int capacidadBuque, int n) {
-    Contenedor **combinacionesQueQuepan;
-    combinacionesQueQuepan = new Contenedor*[1<<n];
-
-    for (int i = 0; i < (1 << n); ++i) {
+Contenedor *generarCombinacionWin(const Contenedor *vec, int capacidadBuque, int n, int &valMax, int &elements) {
+    Contenedor *aux;
+    for (int i = 0; i < 1<<n; ++i) {
         Contenedor *combinacionActual= new Contenedor[n];
         int sumaActual = 0;
-
+        int valorAct=0, cont=0;
+        
         for (int j = 0; j < n; ++j) {
             if (i & (1 << j)) {
                 if (sumaActual + vec[j].volumen <= capacidadBuque) {
                     combinacionActual[j]=vec[j];
                     sumaActual += vec[j].volumen;
+                    valorAct += vec[j].costo;
+                    cont++;
                 }
             }
         }
 
-        if (sumaActual > 0) {
-            combinacionesQueQuepan[i]=combinacionActual;
+        if (valorAct > valMax) {
+            aux=combinacionActual;
+            valMax = valorAct;
+            elements=cont;
         }
     }
-
-    return combinacionesQueQuepan;
+    
+    return aux;
 }
 
 // Función para imprimir combinaciones
@@ -55,8 +58,7 @@ int main() {
     Buque *embarque = static_cast<Buque*>(Titanic);
     embarque->validacionDatos();
     embarque->creacionContenedores();
-    cout<<embarque->inicio->unidades<<endl;
-    int n=0;
+    int n=0, valMax=0, suma = 0, elements=0;
     Contenedor *q = embarque->inicio;
     while (q!= NULL)
     {
@@ -68,7 +70,7 @@ int main() {
     Contenedor *vec = new Contenedor[n];
     // Contenedor *combinacion = new Contenedor[1<<n];
     
-    int suma = 0;
+    
     //Crea un vector de contenedores de todas las  unidades 
     while (q!=NULL)
     {
@@ -89,15 +91,22 @@ int main() {
     {
         vecChido = acotarElementos(vec,n);
         delete [] vec;
+        n=20;
     }
     else
     {
         vecChido = vec;
     }
-    imprimirVectores(vecChido,20);
+    imprimirVectores(vecChido, n);
 
     // Generar todas las combinaciones a partir del inicio de la lista
-    // generarCombinacionesQueQuepan(vecChido,n);
+    Contenedor *convGanadora = generarCombinacionWin(vecChido, embarque->getCapacidad(), n, valMax, elements);
+    for (int i = 0; i < elements; i++)
+    {
+        convGanadora[i].imprimirContenedor();
+    }
+    
+    
     // Liberar la memoria de la lista
 
     return 0;
