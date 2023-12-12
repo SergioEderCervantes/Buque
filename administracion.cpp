@@ -119,7 +119,7 @@ bool validarLinea(const string &linea, set<string> &mercanciasEncontradas)
 bool Administracion::validacionDatos()
 {
 
-    ifstream ifile("BUQUE.DAT");
+    ifstream ifile("Buque.dat");
     if (!ifile)
     {
         cout << endl
@@ -195,7 +195,7 @@ bool Administracion::validacionDatos()
 void Administracion::creacionContenedores()
 {
 
-    ifstream ifile("BUQUE.DAT");
+    ifstream ifile("Buque.Dat");
 
     if (!ifile)
     {
@@ -234,8 +234,6 @@ void Administracion::creacionContenedores()
 
         fin = aux;
 
-        cout << endl
-             << "Contenedor registrado";
     }
 
     ifile.close();
