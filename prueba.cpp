@@ -9,7 +9,7 @@ using namespace std;
 Contenedor *quickSort(Contenedor *vec, int n);
 void imprimirVectores(Contenedor*, int);
 Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal);
-Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int ) {
+Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int& combinacionesHechas) {
     Contenedor *aux;
     for (int i = 0; i <( 1<<n); ++i) {
         Contenedor *combinacionActual= new Contenedor[n];
@@ -22,6 +22,7 @@ Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elem
                     combinacionActual[j]=vec[j];
                     sumaActual += vec[j].volumen;
                     valorAct += vec[j].costo;
+                    combinacionesHechas++;
                     cont++;
                 }
             }
@@ -78,13 +79,21 @@ int main() {
 
     // Generar todas las combinaciones a partir del inicio de la lista
     Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,embarque->getCapacidad(),volFinal);
-    cout << endl << "Conbinacion Ganadora: ";
-    for (int i = 0; i < elements; i++)
+    if (valMax != 0)
     {
-        convGanadora[i].imprimirContenedor();
+        cout << endl << "Conbinacion Ganadora: ";
+        for (int i = 0; i < elements; i++)
+        {
+            convGanadora[i].imprimirContenedor();
+        }
+        cout << endl << "Precio total: " << valMax << " millones de peso";
+        cout << endl << "Volumen ocupado: " << volFinal;
+        //llenarArchRes(convGanadora);
     }
-    cout << endl << "Precio total: " << valMax << " millones de peso";
-    cout << endl << "Volumen ocupado: " << volFinal;
+    else
+    {
+        //llenarArchRes(0);
+    }
 
     
     // Liberar la memoria de la lista
