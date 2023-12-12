@@ -40,7 +40,7 @@ Contenedor **generarCombinacionesQueQuepan(const Contenedor *vec, int capacidadB
 //         }
 //         cout << "}" << endl;
 //     }
-// }
+// } 
 
 
 
