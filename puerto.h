@@ -1,6 +1,10 @@
 #ifndef PUERTO_H
 #define PUERTO_H
-
+#include <cmath>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <typeinfo>
 class Puerto{
 
     public: 

@@ -1,5 +1,3 @@
-#include <iostream>
-#include <typeinfo>
 #include "administracion.cpp"
 #include "logistica.cpp"
 #include "buque.cpp"
@@ -11,7 +9,8 @@ int main(){
 
     Buque *embarque = static_cast<Buque*>(Titanic);
     embarque->ejecutarAdministracion();
-
+    cout<<endl<<"-------------------------------------------"<<endl;
+    embarque->mejorEmbarque();
     cout<<endl<<endl; 
     return 0;
 }
