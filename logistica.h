@@ -1,6 +1,6 @@
 #ifndef LOGISTICA_H
 #define LOGISTICA_H
-
+#include<windows.h>
 
 class Logistica : public Administracion
 {
@@ -12,9 +12,12 @@ class Logistica : public Administracion
         void ejecutarLogistica();
         Contenedor *quickSort(Contenedor *vec, int n);
         void imprimirVectores(Contenedor*, int);
-        Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal);
-        Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int& combinacionesHechas);
+        Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal, long& combinacionesHechas);
+        Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, long& combinacionesHechas, bool);
         void mejorEmbarque();
+        void llenarArchRes(Contenedor*, int);
+        inline void llenarArchRes(int);
+        // friend string procesarCadena(Contenedor);
         ~Logistica(){};
 
 };

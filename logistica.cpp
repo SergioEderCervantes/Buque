@@ -13,7 +13,7 @@ void Logistica::ejecutarLogistica()
     this->mejorEmbarque();
 }
 
-Contenedor* Logistica:: generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int& combinacionesHechas) {
+Contenedor* Logistica:: generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, long& combinacionesHechas, bool) {
     Contenedor *aux;
     for (int i = 0; i <( 1<<n); ++i) {
         Contenedor *combinacionActual= new Contenedor[n];
@@ -50,6 +50,7 @@ void Logistica:: mejorEmbarque() {
     // Construir la lista doblemente ligada a partir de los datos
     
     int n=0, valMax=0, suma = 0, elements=0, volFinal =0;
+    long combinacionesHechas = 0;
     Contenedor *q = this->inicio;
     while (q!= NULL)
     {
@@ -75,7 +76,7 @@ void Logistica:: mejorEmbarque() {
     }
 
     // Generar todas las combinaciones a partir del inicio de la lista
-    Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,this->getCapacidad(),volFinal);
+    Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,this->getCapacidad(),volFinal,combinacionesHechas);
     if (valMax != 0)
     {
         cout << endl << "Combinacion optima encontrada!!!!" << endl;
@@ -87,18 +88,27 @@ void Logistica:: mejorEmbarque() {
         {
             convGanadora[i].imprimirContenedor();
         }
-        //llenarArchRes(convGanadora);
+        llenarArchRes(convGanadora, elements);
+        system("pause");
+        system("cls");
+        cout<<endl << endl <<"-------------------------------------------"<<endl;
+        cout << endl << "Quieres ver todas las combinaciones hechas? s/n  ";
+        char c;
+        cin >> c;
+        if  (c == 's')  cout << endl << "Combinaciones hechas: " << combinacionesHechas;
+
     }
     else
     {
-        //llenarArchRes(0);
+        cout << endl << "No se pudo encontrar manera de acomodar ningun producto en la embarcacion!!!";
+        llenarArchRes(0);
     }
 
     
     // Liberar la memoria de la lista
 
 }
-Contenedor* Logistica:: generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal)
+Contenedor* Logistica:: generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal,long& combinacionesHechas)
 {
     Contenedor * convGanadora = new Contenedor[n];
     bool band = true;
@@ -122,6 +132,13 @@ Contenedor* Logistica:: generarCombinacionWin(Contenedor* vec, int n,int& valMax
             j++;
         }        
     }
+    if (n > 30)
+    {
+        Sleep(10000);
+        if(n > 100) Sleep(10000);
+    }
+    
+    combinacionesHechas = pow(2,n);
     volFinal = acum;
     return convGanadora;
 }
@@ -160,4 +177,31 @@ void Logistica:: imprimirVectores(Contenedor* vec, int n)
         cout << endl << vec[i].getNombre();
     }
     
+}
+
+void Logistica:: llenarArchRes(Contenedor* vec, int elements)
+{
+    ofstream file("Buque.res");
+    if (!file)
+    {
+        cerr << endl << "El archivo no se pudo abrir";
+    }
+    string line;
+    for (int i = 0; i < elements; i++)
+    {
+        line = vec[i].getNombre() + " " + to_string(vec[i].getVolumen()) + " " + to_string(vec[i].getCosto()) + " " + to_string(vec[i].getUnidades());;
+        file << line << endl;        
+    }
+    
+}
+void Logistica :: llenarArchRes(int)
+{
+    ofstream file("Buque.res");
+    if (!file)
+    {
+        cerr << endl << "El archivo no se pudo abrir";
+    }
+    string line = "INVALIDO";
+
+    file << line << endl;
 }
