@@ -26,9 +26,7 @@ int Administracion::getNumProductos()
 
 void Administracion::area()
 {
-    cout << endl
-         << endl
-         << "Entrando al area de administracion..." << endl;
+    cout << endl << endl << "Entrando al area de administracion..." << endl;
 }
 
 bool validarRango(const string &numeroStr, int rangoMinimo, int rangoMaximo)
@@ -247,30 +245,26 @@ void Administracion::resumenDatos()
          << "SOLICITUD DE EMBARQUE ACEPTADA" << endl;
     cout << endl
          << "Espacio disponible en el buque: " << this->capacidad;
-    cout << endl
-         << endl
-         << "Productos que formaran parte del embarque: " << endl
-         << endl;
 
-    Contenedor *q = this->inicio;
-    if (this->inicio == NULL)
-    {
-        cout << "Lista de contenedores vacia" << endl;
-    }
-    else
-    {
-        while (q != NULL)
-        {
-            cout << "- " << q->nombre << endl;
-            q = q->der;
-        }
-    }
+    // Contenedor *q = this->inicio;
+    // if (this->inicio == NULL)
+    // {
+    //     cout << "Lista de contenedores vacia" << endl;
+    // }
+    // else
+    // {
+    //     while (q != NULL)
+    //     {
+    //         cout << "- " << q->nombre << endl;
+    //         q = q->der;
+    //     }
+    // }
 }
 
 void Administracion::ejecutarAdministracion()
 {
 
-    this->area();
+    // this->area();
     if (this->validacionDatos())
     {
         this->creacionContenedores();

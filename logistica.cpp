@@ -8,7 +8,10 @@ void Logistica::area(){
 
 }
 
-void Logistica::ejecutarLogistica(){}
+void Logistica::ejecutarLogistica()
+{
+    this->mejorEmbarque();
+}
 
 Contenedor* Logistica:: generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int& combinacionesHechas) {
     Contenedor *aux;
@@ -70,22 +73,20 @@ void Logistica:: mejorEmbarque() {
         suma+=q->unidades;
         q=q->der;
     }
-    //Aqui es donde tengo que trabajar para acotar 
-    //funcion la cual acota los elementos de la lista para generar las combinaciones si n es mayor a 10, creando un vector de los
-    //10 mejores elementos estadisticamente hablando
-
 
     // Generar todas las combinaciones a partir del inicio de la lista
     Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,this->getCapacidad(),volFinal);
     if (valMax != 0)
     {
-        cout << endl << "Conbinacion Ganadora: ";
+        cout << endl << "Combinacion optima encontrada!!!!" << endl;
+        cout << endl << "Precio total: " << valMax << " millones de peso";
+        cout << endl << "Volumen ocupado: " << volFinal;
+        cout << endl << endl << "Productos que formaran parte del embarque: " << endl << endl;
+
         for (int i = 0; i < elements; i++)
         {
             convGanadora[i].imprimirContenedor();
         }
-        cout << endl << "Precio total: " << valMax << " millones de peso";
-        cout << endl << "Volumen ocupado: " << volFinal;
         //llenarArchRes(convGanadora);
     }
     else

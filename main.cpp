@@ -9,8 +9,8 @@ int main(){
 
     Buque *embarque = static_cast<Buque*>(Titanic);
     embarque->ejecutarAdministracion();
-    cout<<endl<<"-------------------------------------------"<<endl;
-    embarque->mejorEmbarque();
+    cout<<endl << endl <<"-------------------------------------------"<<endl;
+    embarque->ejecutarLogistica();
     cout<<endl<<endl; 
     return 0;
 }
