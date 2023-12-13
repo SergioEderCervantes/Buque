@@ -80,7 +80,7 @@ void Logistica:: mejorEmbarque() {
     if (valMax != 0)
     {
         cout << endl << "Combinacion optima encontrada!!!!" << endl;
-        cout << endl << "Precio total: " << valMax << " millones de peso";
+        cout << endl << "Precio total: " << valMax << " millones de pesos";
         cout << endl << "Volumen ocupado: " << volFinal;
         cout << endl << endl << "Productos que formaran parte del embarque: " << endl << endl;
 
@@ -96,7 +96,10 @@ void Logistica:: mejorEmbarque() {
         cout << endl << "Quieres ver todas las combinaciones hechas? s/n  ";
         char c;
         cin >> c;
-        if  (c == 's')  cout << endl << "Combinaciones hechas: " << combinacionesHechas;
+        if  (c == 's'){
+            (combinacionesHechas > 0) ? cout << endl << "Combinaciones hechas: " << combinacionesHechas : cout << endl << "NUMERO DEMASIADO GRANDE ERROR!!";
+
+        }
 
     }
     else
@@ -120,8 +123,10 @@ Contenedor* Logistica:: generarCombinacionWin(Contenedor* vec, int n,int& valMax
 
         vec[i].relacionPV = vec[i].getCosto() / vec[i].getVolumen();
     }
+    //Ordenar el vector con relacion a PV
     vec = quickSort(vec,n);
     int j = 0;
+    //Llenar la convGanadora con los mejores elementos del arreglo
     for (int i = 0; i < n; i++)
     {
         if (acum + vec[i].getVolumen() <= capacidadBuque)

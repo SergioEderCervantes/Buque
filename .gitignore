@@ -32,5 +32,5 @@
 *.app
 
 # Files
-*.dat
+# *.dat
 *.res
