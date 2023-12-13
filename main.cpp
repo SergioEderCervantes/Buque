@@ -9,7 +9,12 @@ int main(){
     Buque *embarque = static_cast<Buque*>(Titanic);
     embarque->ejecutarAdministracion();
     cout<<endl << endl <<"-------------------------------------------"<<endl;
+    system("pause");
+    system("cls");
+    cout<<endl << endl <<"-------------------------------------------"<<endl;
     embarque->ejecutarLogistica();
-    cout<<endl<<endl; 
+    cout<<endl<<endl;
+    char c;
+    cin >> c; 
     return 0;
 }
