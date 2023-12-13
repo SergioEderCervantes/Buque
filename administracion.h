@@ -30,7 +30,6 @@ class Administracion: public Puerto{
         
         friend bool validarRango(const string &,int,int);
         friend bool validarLinea(string &, set<string>&);
-        friend string procesarCadena(string cadena);
 
         void creacionContenedores();
 
