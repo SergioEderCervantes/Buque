@@ -186,7 +186,6 @@ Contenedor* Logistica::cuentaArticulos(Contenedor *vec, int &n){
         for (int j = i + 1; j < n;) {
             if (vec[i].nombre == vec[j].nombre) {
                 vec[i].unidades++;
-                // Elimina el elemento duplicado desplazando los elementos restantes
                 for (int k = j; k < n - 1; k++) {
                     vec[k] = vec[k + 1];
                     
