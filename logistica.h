@@ -1,6 +1,7 @@
 #ifndef LOGISTICA_H
 #define LOGISTICA_H
 
+#include "administracion.cpp"
 
 class Logistica : public Administracion
 {
@@ -15,6 +16,7 @@ class Logistica : public Administracion
         Contenedor *generarCombinacionWin(Contenedor* vec, int n,int& valMax, int& elements, int capacidadBuque, int& volFinal);
         Contenedor *generarCombinacionWin(Contenedor *vec, int n, int& valMax, int &elements, int capacidadBuque, int& volFinal, int& combinacionesHechas);
         void mejorEmbarque();
+        Contenedor *cuentaArticulos(Contenedor *vec, int &n);
         ~Logistica(){};
 
 };

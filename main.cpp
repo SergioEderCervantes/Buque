@@ -1,4 +1,3 @@
-#include "administracion.cpp"
 #include "logistica.cpp"
 #include "buque.cpp"
 using namespace std;

@@ -83,6 +83,7 @@ void Logistica:: mejorEmbarque() {
         cout << endl << "Volumen ocupado: " << volFinal;
         cout << endl << endl << "Productos que formaran parte del embarque: " << endl << endl;
 
+        convGanadora = cuentaArticulos(convGanadora, elements);
         for (int i = 0; i < elements; i++)
         {
             convGanadora[i].imprimirContenedor();
@@ -160,4 +161,25 @@ void Logistica:: imprimirVectores(Contenedor* vec, int n)
         cout << endl << vec[i].getNombre();
     }
     
+}
+
+Contenedor* Logistica::cuentaArticulos(Contenedor *vec, int &n){
+    
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n;) {
+            if (vec[i].nombre == vec[j].nombre) {
+                vec[i].unidades++;
+                // Elimina el elemento duplicado desplazando los elementos restantes
+                for (int k = j; k < n - 1; k++) {
+                    vec[k] = vec[k + 1];
+                    
+                }
+                n--;
+            } else {
+                j++;
+            }
+        }
+    }
+        
+    return vec;
 }
