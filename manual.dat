@@ -1,0 +1,28 @@
+                                    Manual de Usuario
+
+            1- Al comenzar el programa se desglosara el menu para acceder a este 
+            manual de usuario por la palabra -Manual de Usuario-, selecciona 2 si deseas 
+            acceder a esta misma, del caso contrario presiona 1 para continuar 
+            con la ejecucion habitual.
+
+            2- Al querer modificar los datos para las combinaciones debes tener en 
+            cuenta la estructura del archivo y que los datos sean escritos 
+            correctamente siguiendo la siguiente estructura:
+
+                *	Linea 1: Cantidad de productos enlistados
+                *	Linea 2: Capacidad de carga del buque
+                *	Linea 3-99: Mercancia-Volumen-Precio-Unidades
+
+
+            Si se desea agregar mas mercancias seguir el orden de la linea 3 pero sin 
+            superar los 99 productos limite.
+            Las modificaciones pertinentes son realizadas en el archivo Buque.dat
+
+            3- Al ejecutar el programa, se mostrara si la solicitud fue aceptada y el tamaño total 
+            del buque; de lo contrario, se dara a conocer en qué línea del archivo de datos se presentó
+            un error.
+
+            4- El programa seguira su ejecucion automatica y desplegara en pantalla la mejor 
+            combinacion de carga de mercancias, para al final preguntar si desea imprimir 
+            el numero de combinaciones totales que cumplian con la capacidad de carga, usted 
+            ingresara -s- para imprimirlo o -n- para lo contrario.

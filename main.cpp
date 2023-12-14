@@ -14,7 +14,9 @@ int main(){
     embarque->ejecutarAdministracion();
     cout<<endl << endl <<"\t\t\t---------------------------------------------------"<<endl;
     embarque->ejecutarLogistica();
-    cout<<endl<<endl; 
+    cout<<endl<<endl;
+    char c;
+    cin >> c; 
     return 0;
 }
 

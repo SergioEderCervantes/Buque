@@ -146,7 +146,7 @@ bool Administracion::validacionDatos()
         cout << endl
              << "Tu parametro ingresado como numero de productos es incorrecto!";
         cout << endl
-             << "Necesaria una corrección inmediata de la documentacion para poder realizar el proceso!";
+             << "Necesaria una correccion inmediata de la documentacion para poder realizar el proceso!";
 
         return false;
     }

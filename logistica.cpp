@@ -120,8 +120,10 @@ Contenedor* Logistica:: generarCombinacionWin(Contenedor* vec, int n,int& valMax
 
         vec[i].relacionPV = vec[i].getCosto() / vec[i].getVolumen();
     }
+    //Ordenar el vector con relacion a PV
     vec = quickSort(vec,n);
     int j = 0;
+    //Llenar la convGanadora con los mejores elementos del arreglo
     for (int i = 0; i < n; i++)
     {
         if (acum + vec[i].getVolumen() <= capacidadBuque)
