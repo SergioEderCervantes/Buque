@@ -1,5 +1,6 @@
 #include "logistica.cpp"
 #include "buque.cpp"
+#include <conio.h>
 using namespace std;
 
 void menu();
@@ -15,8 +16,7 @@ int main(){
     cout<<endl << endl <<"\t\t\t---------------------------------------------------"<<endl;
     embarque->ejecutarLogistica();
     cout<<endl<<endl;
-    char c;
-    cin >> c; 
+    getch();
     return 0;
 }
 
