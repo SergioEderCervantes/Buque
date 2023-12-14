@@ -242,23 +242,10 @@ void Administracion::resumenDatos()
     cout << endl
          << endl
          << endl
-         << "SOLICITUD DE EMBARQUE ACEPTADA" << endl;
+         << "\t\t\t\tSOLICITUD DE EMBARQUE ACEPTADA" << endl;
     cout << endl
-         << "Espacio disponible en el buque: " << this->capacidad;
+         << "\t\t\t\tEspacio disponible en el buque: " << this->capacidad;
 
-    // Contenedor *q = this->inicio;
-    // if (this->inicio == NULL)
-    // {
-    //     cout << "Lista de contenedores vacia" << endl;
-    // }
-    // else
-    // {
-    //     while (q != NULL)
-    //     {
-    //         cout << "- " << q->nombre << endl;
-    //         q = q->der;
-    //     }
-    // }
 }
 
 void Administracion::ejecutarAdministracion()

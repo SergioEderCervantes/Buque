@@ -15,9 +15,9 @@ void Contenedor::setCosto(int _costo) { this->costo = _costo; }
 void Contenedor::setUnidades(int _unidades) { this->unidades = _unidades; }
 
 void Contenedor::imprimirContenedor(){
-    cout<<endl<<"Mercancia: "<<this->nombre;
-    cout<<endl<<"Volumen: "<<this->volumen;
-    cout<<endl<<"Costo:"<<this->costo;
-    cout<<endl<<"Unidades: "<<this->unidades;
+    cout<<endl<<"\t\t\t\t\tMercancia: "<<this->nombre;
+    cout<<endl<<"\t\t\t\t\tVolumen: "<<this->volumen;
+    cout<<endl<<"\t\t\t\t\tCosto:"<<this->costo;
+    cout<<endl<<"\t\t\t\t\tUnidades: "<<this->unidades;
     cout<<endl;
 }

@@ -79,10 +79,10 @@ void Logistica:: mejorEmbarque() {
     Contenedor *convGanadora = generarCombinacionWin(vec,n,valMax,elements,this->getCapacidad(),volFinal,combinacionesHechas);
     if (valMax != 0)
     {
-        cout << endl << "Combinacion optima encontrada!!!!" << endl;
-        cout << endl << "Precio total: " << valMax << " millones de peso";
-        cout << endl << "Volumen ocupado: " << volFinal;
-        cout << endl << endl << "Productos que formaran parte del embarque: " << endl << endl;
+        cout << endl << "\t\t\t\tCombinacion optima encontrada!!!!" << endl;
+        cout << endl << "\t\t\t\tPrecio total: " << valMax << " millones de peso";
+        cout << endl << "\t\t\t\t\tVolumen ocupado: " << volFinal;
+        cout << endl << endl << "\t\t\t\tProductos que formaran parte del embarque: " << endl << endl;
 
         convGanadora = cuentaArticulos(convGanadora, elements);
         for (int i = 0; i < elements; i++)
@@ -92,11 +92,11 @@ void Logistica:: mejorEmbarque() {
         llenarArchRes(convGanadora, elements);
         system("pause");
         system("cls");
-        cout<<endl << endl <<"-------------------------------------------"<<endl;
-        cout << endl << "Quieres ver todas las combinaciones hechas? s/n  ";
+        cout<<endl << endl <<"\t\t\t----------------------------------------------------"<<endl;
+        cout << endl << "\t\t\tQuieres ver todas las combinaciones hechas? s/n  ";
         char c;
         cin >> c;
-        if  (c == 's')  cout << endl << "Combinaciones hechas: " << combinacionesHechas;
+        if  (c == 's')  cout << endl << "\t\t\t\tCombinaciones hechas: " << combinacionesHechas;
 
     }
     else
